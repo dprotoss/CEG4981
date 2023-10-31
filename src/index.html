@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+
+    
+    <h1>Robot App Functions </h1>
+
+    <div id="app">
+       
+        <body>
+
+            <div class="flashing-feature" id="app">
+                <button v-on:click="toggleFlash" class="base Connect"> Connect </button>
+                <div class="square-wrapper">
+                    <div class="square" :class="{'flash': isFlashing}"></div>
+                </div>
+            </div>
+            <br>    
+            <button class="base Stop"> Stop </button>
+            <br>   
+            <button class="base Go"> Go </button>
+            <br>   
+            <button class="base Panic"> Panic </button>
+            <br>   
+        
+        
+        </body>
+    
+        
+    </div>
+    
+    <script src="app.js"></script>
+
+</body>
+
+
+</html>
