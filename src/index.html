@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://unpkg.com/vue@next"></script>
+    <script src='https://cdnjs.cloudfare.com/ajax/socket.io/2.0.2/socket.io.js' ></script>
 </head>
 
 <body>
@@ -31,6 +32,19 @@
             <button class="base Panic"> Panic </button>
             <br>   
         
+
+            <h2> Test with websocket </h2>
+            <script>
+                var socket = io();
+
+                socket.on('data', function(data){
+
+                    console.log(data);
+
+                    document.getElementById('sample').html(data);
+                });
+
+            </script>
         
         </body>
     
