@@ -34,14 +34,16 @@
         
 
             <h2> Test with websocket </h2>
-            <script>
+
+           
+            <script src="portListen.js">
                 var socket = io();
 
                 socket.on('data', function(data){
 
                     console.log(data);
 
-                    document.getElementById('sample').html(data);
+                    document.getElementById('sample').innerHTML = data;
                 });
 
             </script>

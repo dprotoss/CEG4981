@@ -1,4 +1,4 @@
-const app = Vue.createApp({
+const stuff = Vue.createApp({
     data(){
         return {
             age: 23,
@@ -13,4 +13,4 @@ methods: {
 })
 
 
-app.mount('#app')
+stuff.mount('#app')

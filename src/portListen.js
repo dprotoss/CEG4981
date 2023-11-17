@@ -1,7 +1,7 @@
 var http = require('http');
 var fs = require('fs');
 
-var index = fs.readFileSync('index.html');
+var index = fs.readFileSync('./src/index.html');
 
 
 var SerialPort = require("serialport");
@@ -11,7 +11,7 @@ const parser = new parsers.Readline({
     delimiter: '\r\n'
 });
 
-
+ 
 var port = new SerialPort('COM3', {
 baudRate: 9600,
 dataBits: 8,
@@ -22,15 +22,26 @@ flowControl: false
 
 port.pipe(parser);
 
+var app = http.createServer(function(req,res){
+
+    res.writeHead(200, {'content-type':'text/html'});
+    res.end(index);
+});
+
+var io = require('socket.io').listen(app);
+
+io.on('connection', function(data){
+
+    console.log('Node.js is listening!')
+});
+
 parser.on('data', function(data){
 
     console.log(data);
+
+    io.emit('data',data);
+
 });
 
-var app = http.createServer(function(req,res){
-
-    res.writeHead(200, {'Content-Type':'text/html'});
-    res.end(index);
-})
 
 app.listen(3000);
