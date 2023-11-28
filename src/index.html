@@ -19,15 +19,15 @@
         <body>
 
             <div class="flashing-feature" id="app">
-                <button v-on:click="toggleFlash" class="base Connect"> Connect </button>
+                <button v-on:click="toggleFlash" class="base Connect" > Connect </button>
                 <div class="square-wrapper">
-                    <div class="square" :class="{'flash': isFlashing}"></div>
+                    <div class="square" :class="{'flash': isFlashing}"  id="squareThang"></div>
                 </div>
             </div>
             <br>    
             <button class="base Stop"> Stop </button>
             <br>   
-            <button class="base Go"> Go </button>
+            <button onclick="startRequest()" class="base Go"> Go </button>
             <br>   
             <button class="base Panic"> Panic </button>
             <br>   
